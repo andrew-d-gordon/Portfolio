@@ -186,7 +186,6 @@ if __name__ == '__main__':
     sys.argv[3].write(globals()[sys.argv[1]](fidata))'''
     pass
     
-#message = "heyo let us get this bread brethren 9%#wE6t"
 testmessage="a b c d e f g h i j k l m n o p... :;][\.,o129385089uoiquwet$^&*&^%$#@!"
 encodedmessage = encode(testmessage)
 print("encoded message:", encodedmessage)
