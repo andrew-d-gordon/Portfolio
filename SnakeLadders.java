@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class SnakeLadders {
-
+	//Work in progress, mostly practice for subclasses
 	public static void main(String[] args) {
 		Player[] players = new Player[3];
 		players[0] = new Player("abc");
