@@ -1,6 +1,7 @@
 '''
 Created on Feb 24, 2019
-
+Work in Progress, can successfully encode and decode files.
+Needs encoded to be transferred to bit representation of encoding and traversal in order to compress.
 @author: Gordon
 '''
 import sys
