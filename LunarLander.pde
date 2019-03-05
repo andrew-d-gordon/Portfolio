@@ -1,5 +1,5 @@
 /*
-Origin rocket class and file provided by McDowell from Canvas.
+Origin rocket class and file provided by Charlie McDowell from Canvas.
 This program is by Andrew Gordon and Nick Shekelle.
 Our Program is a game where one must land the rocket on the displayed platform
 without tilting the rocket too much, managing speed with thrust (thrust activated
