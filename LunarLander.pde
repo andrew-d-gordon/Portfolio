@@ -1,4 +1,5 @@
 /*
+This file is to be used in tandem with the LunarLander file, run through the Processing Application
 Origin rocket class and file provided by Charlie McDowell from Canvas.
 This program is by Andrew Gordon and Nick Shekelle.
 Our Program is a game where one must land the rocket on the displayed platform
