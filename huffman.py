@@ -245,7 +245,6 @@ if __name__ == '__main__':
     pass
 
 #test input   
-'''#message = "heyo let us get this bread brethren 9%#wE6t"
 testmessage="a b c d e f g h i j k l m n o p... :;][\.,o129385089uoiquwet$^&*&^%$#@!"
 encodedmessage = encode(testmessage)
 #("encoded message:", encodedmessage)
