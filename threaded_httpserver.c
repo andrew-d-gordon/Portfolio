@@ -742,7 +742,6 @@ void* handle_request(void* thread) {
             pthread_mutex_unlock(w_thread->incrementLogTotalsLock);
         }
 
-        //printf("we got here!\n");
         close(w_thread->client_sockd);
         w_thread->client_sockd = INT_MIN; //to sleep again
         
@@ -923,7 +922,7 @@ int main(int argc, char** argv) {
          */
         int client_sockd = accept(server_sockd, &client_addr, &client_addrlen);
 
-        while(1) { // LOOK FOR READY THREAD, BROADCAST IF FOUND, ELSE USLEEP .1S AND LOOK AGAIN
+        while(1) { // LOOK FOR READY THREAD, BROADCAST IF FOUND, ELSE USLEEP .01S AND LOOK AGAIN
             target_thread = count%amountOfThreads;
             if(workers[target_thread].client_sockd < 0) {
                 workers[target_thread].client_sockd = client_sockd;
