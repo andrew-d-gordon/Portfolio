@@ -16,9 +16,6 @@
 #include <ctype.h>
 #include <time.h>
 
-double oneRun;
-double timeForProgram;
-
 #define MAX9DIGDEC 100000000
 #define BUFFER_SIZE 6145
 #define CONVERTED_BUFFER_SIZE 4141 //2071 //or 2761
@@ -37,6 +34,18 @@ double timeForProgram;
 #define RESPONSEBASE "HTTP/1.1 sc# \r\nContent-Length: \r\n\r\n"
 #define LOGRESPONSECLOSE "========\n"
 #define LOGRESPONSEHEADERBASE "FAIL:  / length 32 --- response sc#\n"
+
+/* This httpserver's primary goal was to process PUT, HEAD, and GET requests concurrently as well as have the ability to log responses
+which were sent back to the client. When booted the server must be supplied a port number and can be supplied with -l and -N flags (in any order).
+The -l flag is used to notify the server to log responses and pertinent data (in the case of PUT/GET) to a specified log file name after
+the flag (can already exist or not, if permitted existing files will be truncated).
+The -N flag is used to specify how many threads you would like the server to spin. If none specified the default spun is 4.
+At the moment there is some rudimentary Mutex locks being used around critical regions and some busy waiting where the dispatcher thread
+supplies workers with requests to fulfill. These aspects will be tuned up more in the recent future to be less prone to scheduling issues
+and more efficient.
+(Also as a quirk of our intitial assignment I have added the functionality to effectively hexdump the contents of a GET/PUT request
+to the log file. This functionality can be bypassed by removing the calls to the writeHexBodyToLog function as well as setting 
+bodyResponseSize to 0 in the log_response function.)*/
 
 struct httpObject { // USED TO KEEP TRACK OF ALL INFO HTTP REQUEST INFORMATION
 
@@ -143,7 +152,7 @@ void read_http_response(ssize_t client_sockd, struct httpObject* message, pthrea
     message->socketIOcheck.events = POLLIN;
     message->socketIOcheck.fd = client_sockd;
     
-    while(message->numOfReceivedBytes < FourKibibytes) { // ATTEMPT TO READ 512 KIB INTO THE BUFFER FROM SOCKET, INFO COULD BE PART OF HEAD OR BODY, BEGIN TO PARSE ON POLL TIMEOUT
+    while(message->numOfReceivedBytes < FourKibibytes) { // ATTEMPT TO READ 4 KiB INTO THE BUFFER FROM SOCKET, INFO COULD BE PART OF HEAD OR BODY, BEGIN TO PARSE ON POLL TIMEOUT
         message->pollReturn = poll(&message->socketIOcheck, 1, 1000); // POLL SOCKET WITH .1 SECOND TIMEOUT
         if(message->pollReturn > 0) { // POLL SIGNALS SOCKET IS READY FOR I/O OPERATIONS
             message->read_bytes=recv(client_sockd, message->buffer+message->numOfReceivedBytes, FourKibibytes-message->numOfReceivedBytes, 0);
@@ -186,7 +195,6 @@ void read_http_response(ssize_t client_sockd, struct httpObject* message, pthrea
             message->numberScanned = stringFinder(HEADERSTARTS, (char *) &message->headerStarts+strlen(HEADERSTARTS), (char *) &message->headerStarts, "\r\n%[^:\r\n]: %[^\r\n]%*[\r\n]", message->headString1, &headString2);
         }
         pthread_mutex_unlock(stringFinderLock);
-        
         //UNLOCK
 
         if(message->numberScanned == 2) { // VALID HEADER, IF WE WANT CONTENT LEN AND IT'S CONTENT LEN HEADER, STORE CONTENT LEN, CONTINUE
