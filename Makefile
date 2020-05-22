@@ -1,9 +1,10 @@
+#This Makefile can be used to create executables for dog.c and threaded_httpserver.c, remove exe's with make clean...
 # C compiler
 CC = gcc
 # C compiler flags
 CFLAGS = -std=gnu11 -g -Wall -Wextra -Wpedantic -Wshadow -pthread
 # Target executable name
-TARGET = server
+TARGET = threaded_httpserver
 
 all: $(TARGET)
 
