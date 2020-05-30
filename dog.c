@@ -6,8 +6,8 @@
 #include <sys/types.h>
 #include <stdint.h>
 
-/*This is effectively a remake of the cat command which can be utilized on linux command line. The only difference being it primarily 
-serves to print out contents from a specified source (- for stdin, or filename for a file) to std out.*/
+/*This is effectively a remake of the cat command which can be utilized on linux command line. The only difference being it solely 
+serves to print out contents from a specified source (- for stdin, or filename for a file) to std out. (it also processes arguments in reverse order)*/
 
 void copyToStdout(int16_t source, char source_name[], uint16_t buf[], size_t count) { //copyFileToStdout copies the contents of the requested source to standard out
     ssize_t read_bytes;
