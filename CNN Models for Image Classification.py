@@ -223,9 +223,7 @@ base_model = VGG16(weights = 'imagenet',
                    input_shape = (32, 32, 3), 
                    pooling = None)
 
-# refreeze the weights in VGG16 so they don't update
-for layer in base_model.layers:  
-    layer.trainable = False
+''' Not refreezing the weights does improve training for this set '''
 
 x = base_model.output
 x = Flatten()(x)
