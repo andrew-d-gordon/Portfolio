@@ -223,27 +223,33 @@ base_model = VGG16(weights = 'imagenet',
                    input_shape = (32, 32, 3), 
                    pooling = None)
 
-''' Not refreezing the weights does improve training for this set '''
+'''
+Refreeze weights of pre trained model, the added layers below along with 
+dropout help to alleviate overfitting to the training data present in previous training.
+Validation improves about 0.05 and early termination is generally avoided.
+'''
+for layer in base_model.layers:  
+    layer.trainable = False
 
 x = base_model.output
 x = Flatten()(x)
 
-x = Dense(50, activation = 'relu')(x)
+x = Dense(800, activation = 'relu')(x)
 
-x = Dropout(0.05)(x) #.1
+x = Dropout(0.5)(x) #.1
 
 predic = Dense(10, activation = 'softmax')(x) 
 
 model = Model(inputs = base_model.input, outputs = predic) 
 model.summary()
 
-opt2a = RMSprop(lr = 0.00001) #.0001
+opt2a = RMSprop(lr = 0.0001) #.0001
 
 model.compile(loss = 'categorical_crossentropy',
               optimizer = opt2a,
               metrics = ['acc'])
 
-epochs = 20 ### Leave the epochs at 20 ###
+epochs = 20
 
 batchsize = 200
 
