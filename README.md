@@ -1,4 +1,5 @@
-# Andrew Gordon's Portfolio, Computer Science B.S. and Electronic Music Minor at UCSC
+# Andrew Gordon's Portfolio
+# Computer Science B.S. and Electronic Music Minor at UCSC
 Thank you for stopping by my portfolio!
 My most recent project is a full stack web-app called DELISH. It makes use of MongoDB, Google Maps API, and Google Cloud Platform to provide a unique cuisine searching experience. 
 Information on the project can be found here: [Delish Web App](https://github.com/andrew-d-gordon/Delish-Food)
