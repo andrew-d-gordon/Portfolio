@@ -1,5 +1,3 @@
--- Sample Script file to Populate the Lab2 DB
--- Populate the tables
 
 COPY Houses FROM stdin USING DELIMITERS '|';
 111|1156 High Street,Santa Cruz,CA, 95060|10|2018-06-23

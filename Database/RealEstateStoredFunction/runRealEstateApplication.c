@@ -16,13 +16,6 @@ static void do_exit(PGconn *conn)
 }
 
 
-/* The three C functions that you need to complete for Lab4 should appear below.
- * You need to write these functions, as described in Lab4 Section 4 (and Section 5, which
- * describes the Stored Function used by the third C function.
- * In main, you need to write the tests of those function, as described in Lab4, Section 6.
- */
-
-
  /* brokerLevel is an attribute in the Brokers table.  The getBrokerLevelCount function has a char
  * (not a sting) argument, theBrokerLevel, and it should return the number of Brokers whose
  *  brokerLevel value equals theBrokerLevel.
@@ -146,14 +139,14 @@ main(int argc, char **argv)
         do_exit(conn);
     }
         
-    /* Perform the call to getBrokerLevelCount described in Section 6 of Lab4,
+    /* Perform the call to getBrokerLevelCount 
      * and print its output.
      */
     char ch = 'B';
     theResult = getBrokerLevelCount(conn, ch);
     printf("\nOutput of getBrokerLevelCount\nwhen the parameter theBrokerLevel is '%c'\n%d\n\n", ch, theResult);
         
-    /* Perform the call to updateCompanyName described in Section 6 of Lab4
+    /* Perform the call to updateCompanyName 
      * and print its output. Weathervane Group Realty
      */
     char oldCompanyName1[1000] = "Weathervane Group Realty";
@@ -166,7 +159,7 @@ main(int argc, char **argv)
     theResult = updateCompanyName(conn, oldCompanyName2, newCompanyName2);
     printf("\nOutput of updateMovieName when the oldCompanyName is \n'%s' and the newCompanyName is '%s'\n%d\n\n", oldCompanyName2, newCompanyName2, theResult);
         
-    /* Perform the two calls to increaseSomeOfferPrices described in Section 6 of Lab4
+    /* Perform the two calls to increaseSomeOfferPrices
      * and print their outputs.
      */
 

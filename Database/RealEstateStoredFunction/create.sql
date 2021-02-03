@@ -1,8 +1,5 @@
-DROP SCHEMA Lab4 CASCADE; 
-CREATE SCHEMA Lab4; 
-
--- Create Tables for Lab4.
-
+DROP SCHEMA RealEstate CASCADE; 
+CREATE SCHEMA RealEstate; 
 
 -- Houses(houseID, address, ownerID, mostRecentSaleDate)  
 CREATE TABLE Houses 
