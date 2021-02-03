@@ -1,0 +1,235 @@
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: absolute; /* absolute, fixed would make it placed fixed */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links for each cuisine type*/
+.sidenav a { 
+  font-family: 'Work Sans', sans-serif;
+  cursor: pointer;
+  padding: 8px 8px 8px 20px;
+  text-decoration: none;
+  text-align: left;
+  font-size: 26px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav .sidenav-header { /* Style for SideNav Title */ 
+  font-family: 'Work Sans', sans-serif;
+  cursor: default;
+  padding: 0px 0px 8px 20px;
+  text-decoration: underline;
+  font-size: 26px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, highlight them */
+.sidenav a:hover {
+  cursor: pointer;
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 40px;
+  margin-left: 50px;
+}
+
+.container {
+  font-family: "Lato", sans-serif;
+  color: black;
+}
+
+/* NAV BAR/MENU BUTTON STYLES */
+
+.navigation-wrap {
+  font-weight: bold;
+  font-size:20px;
+  display: absolute;
+}
+
+.nav-bar-title { /* Style for the title */ 
+  position: absolute;
+  margin-left: 44%;
+  font-size: 40px;
+  height: 22px;
+  font-family: 'Work Sans', sans-serif;
+  align-items: center;
+  justify-content: center;
+  padding-top: 9px;
+  text-emphasis: outline;
+  font-weight: 400;
+  z-index: 1;
+}
+.title-box{ /* Style for the box of behind the title */ 
+  position: fixed;
+  background-color: #f1f1f1;
+  width: 166px;
+  height: 42px;
+  padding-left: 3px;
+  border-radius: 2px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.navigation-link-wrap { /* Style for the button "Menu" */ 
+  position: absolute;
+  margin-left: 10px;
+  font-size: 30px;
+  height: 22px;
+  font-family: 'Work Sans', sans-serif;
+  justify-content: left;
+  padding-top: 9px;
+  color: black;
+  z-index: 1;
+  border-bottom: 1px solid transparent;
+  transition: opacity 1.5s ease-out;
+}
+.menu-box{ /* Style for the box behind "Menu" */ 
+  position: fixed;
+  background-color: #f1f1f1;
+  width: 81px;
+  height: 32px;
+  padding-left: 2px;
+  border-radius: 2px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+.menu-box:hover { /* On hover, darken the menu box */
+  background-color: #d2d2d2;
+}
+
+.active-nav-demo { 
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 50px;
+  font-size: 20px;
+  border-bottom: none;
+}
+
+.navigation-link-wrap:hover {
+  border-bottom: 2px solid black;
+  padding-bottom: 14px;
+  transition: 0.3s;
+}
+
+.navigation-link-wrap a:hover {
+  color: black;
+}
+
+.active-nav-link {
+  cursor: pointer;
+}
+
+.active-nav-link a:hover {
+  cursor: pointer;
+  border-bottom: 1px solid black;
+  color: black !important;
+}
+
+/*checkmark divs*/
+.cuisine-type-check {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  font-family: "Lato", sans-serif;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+
+#box {
+  transition: margin-left .5s;
+}
+
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. */
+#map {
+  height: 100%;
+  transition: margin-left .5s;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.description{ /* Style for the text of the description box */ 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: 200ms ease-in-out;
+  border: 1px solid black;
+  border-radius: 5px;
+  z-index: 10;  
+  background-color: white;
+  width: 525px;
+  max-width: 70%;
+  text-align: center;
+}
+.description.active{ /* Closing the description, shrink the box instead of instantly closing */ 
+  transform: translate(-50%, -50%) scale(0);
+   
+}
+.description-header{ /* Style for the header of the description */
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+.description-header .title{ 
+  font-size: 1.25rem;
+  font-weight: bold;
+  padding-left: 110px;
+}
+.description-header .close-button{ 
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+
+}
+.description-body{
+  padding: 10px 15px;
+}
+#overlay{
+  position: fixed;
+  opacity: 1;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .7);
+  z-index: 8;
+}
+#overlay.active{
+  opacity: 0;
+  pointer-events: all;
+  
+}

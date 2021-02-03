@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <title>Delish Food Map</title>
+    <link rel="icon" type="image/png" href="./Icons/favicon-32x32.png" sizes="32x32" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!--MarkerClusterer Import-->
+    <script src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js"></script>
+    <!--Local JS-->
+    <script src="./index.js"></script>
+    <script src="./placeDetails.js"></script>
+    <script src="./apiRequests.js"></script>
+    <script src="./cuisineSearch.js"></script>
+    <script type="text/javascript" src="gmap.js"></script>
+    <!-- Imported Fonts --> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;1,200;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@509&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+  </head>
+  <body>
+    
+    <!--HEADER DIV-->
+    <div class="nav-bar-title">
+      <div class = "title-box" style="white-space:nowrap">
+      <img src="./Icons/favicon-32x32.png" sizes="50x50"/>
+        Delish
+      </div>
+    </div>
+    <!--SIDE NAV BAR DIVS-->
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div id="menuDescription" class="sidenav-header">
+            Cuisine Type
+        </div>
+        <div class="cuisine-type-check" id="Mexican" style="float: right; margin-top: 10px; margin-right: 15px;"></div>
+        <a href="#" class="cuisine-type">Mexican</a>
+        <div class="cuisine-type-check" id="Vietnamese" style="float: right; margin-top: 10px; margin-right: 15px;"></div>
+        <a href="#" class="cuisine-type">Vietnamese</a>
+        <div class="cuisine-type-check" id="Indian" style="float: right; margin-top: 10px; margin-right: 15px;"></div>
+        <a href="#" class="cuisine-type">Indian</a>
+        <div class="cuisine-type-check" id="Italian" style="float: right; margin-top: 10px; margin-right: 15px;"></div>
+        <a href="#" class="cuisine-type">Italian</a>
+        <div class="cuisine-type-check" id="Chinese" style="float: right; margin-top: 10px; margin-right: 15px;"></div>
+        <a href="#" class="cuisine-type">Chinese</a>
+        <div class="cuisine-type-check" id="Thai" style="float: right; margin-top: 10px; margin-right: 15px;"></div>
+        <a href="#" class="cuisine-type">Thai</a>
+        <div class="cuisine-type-check" id="Greek" style="float: right; margin-top: 10px; margin-right: 15px;"></div>
+        <a href="#" class="cuisine-type">Greek</a>
+        <div class="cuisine-type-check" id="Middle Eastern" style="float: right; margin-top: 10px; margin-right: 15px;"></div>
+        <a href="#" class="cuisine-type">Middle Eastern</a>
+        <div class="cuisine-type-check" id="Korean" style="float: right; margin-top: 10px; margin-right: 15px;"></div>
+        <a href="#" class="cuisine-type">Korean</a>
+        <div class="cuisine-type-check" id="Japanese" style="float: right; margin-top: 10px; margin-right: 15px;"></div>
+        <a href="#" class="cuisine-type">Japanese</a>
+        <div class="cuisine-type-check" id="African" style="float: right; margin-top: 10px; margin-right: 15px;"></div>
+        <a href="#" class="cuisine-type">African</a>
+        <div class="cuisine-type-check" id="Cajun" style="float: right; margin-top: 10px; margin-right: 15px;"></div>
+        <a href="#" class="cuisine-type">Cajun</a>
+        <div class="cuisine-type-check" id="Latin" style="float: right; margin-top: 10px; margin-right: 15px;"></div>
+        <a href="#" class="cuisine-type">Latin</a>
+        <div class="cuisine-type-check" id="American" style="float: right; margin-top: 10px; margin-right: 15px;"></div>
+        <a href="#" class="cuisine-type">American</a>
+      </div>
+      
+      <!-- ELEMENT TO OPEN SIDENAVBAR DIV -->
+      <div class="navigation-link-wrap active-nav-link" id = "menu" onclick="openNav()">
+          <div class="menu-box" id = "menu-box">
+          Menu
+          </div>
+      </div>
+    </div>
+    
+    <!--GMAPS DIVS-->
+    <div id="box"></div>
+    <div id="map"></div>
+  
+
+    <!-- pop-up divs -->
+    <div class="description" id="popup">
+      <div class="description-header">
+        <div class="title">Welcome to Delish Food!</div>
+        <button data-close-button class="close-button">&times;</button>
+      </div>
+      <div class="description-body">
+        
+        We want to help you find the best ethnic food in your area. On
+        the next page, please enable the location permission and choose 
+        a category from the menu on the left. To change your search 
+        location, click somewhere else on the map.
+         
+      </div> 
+    </div>
+    <div id="overlay"></div>
+  </body>
+</html>

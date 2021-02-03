@@ -1,0 +1,7 @@
+endpoints_api_service:
+  # The following values are to be replaced by information from the output of
+  # 'gcloud endpoints services deploy openapi-appengine.yaml' command.
+  name: delish-food-292917.appspot.com
+  rollout_strategy: managed
+runtime: nodejs
+env: flex
