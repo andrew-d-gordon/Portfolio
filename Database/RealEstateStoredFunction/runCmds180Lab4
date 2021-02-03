@@ -1,0 +1,2 @@
+gcc -L/usr/include -lpq -o runRealEstateApplication runRealEstateApplication.c
+./runRealEstateApplication andgordo inference57dump
