@@ -70,7 +70,7 @@ def points(boundsLat, boundsLong, factor, recs):
     return candidates, furthestCandidate #returns updated candidates list, and furthestCandidate
 
 '''distance function will provide us the distance between our candidate point and the current
-point we are looking at in recs, then will attach weight to third index in triplet of candidate'''
+point we are looking at in recordings, then we will attach weight to third index in triplet of candidate'''
 def distance(candPtList, rec):
     #currentWeight = candPtList[2]
     latDiff = abs(candPtList[0]-rec[0])
@@ -98,31 +98,25 @@ for i in range(iterations):
     test = points(boundsLat, boundsLong, factor, recs) #run algo
     
     #test[2].sort(key = lambda x: x[1], reverse=True) #sort "finalists" list, which was returned in second index of points triple-tuplet return
-    
     #print("")
     #print("Candidates List (with dist):") #updated candidates list print, candidates updated list was in first index of points triple tuplet return
-    #print(test[0])
     
     print("")
     print("Furthest Candidate:") #prints furthest candidate
     print("X: " + str(test[1][0]) + ", Y: " + str(test[1][1]) + ", Distance: " + str(test[1][2]))
     
-    #print("")
     #print("finalists:") #prints furthest candidate
-    #print(test[2])
     
     newRecs.append([])
-    #newRecs[len(newRecs)-1] = (test[0][test[1][0]-1][0], test[0][test[1][0]-1][1]) #appends newly recorded point to new recordings to be made list
-    newRecs[len(newRecs)-1] = (test[1][0], test[1][1])
+    #newRecs[len(newRecs)-1] = (test[0][test[1][0]-1][0], test[0][test[1][0]-1][1]) 
+    newRecs[len(newRecs)-1] = (test[1][0], test[1][1]) #appends newly recorded point to new recordings to be made list
     
     print("")
     print("Points to record:") #points to be recorded printed
     print(newRecs)
     
-    recs.append([]) #would be cool to have points that are added to be recorded get colored in a different color than initial recordings on a final graph made up of points in recs array after run 
-    #recs[len(recs)-1] = (test[0][test[1][0][0]-1][0], test[0][test[1][0][0]-1][1]) #appends newly recorded point to recs for next round
-    #recs[len(recs)-1] = (test[0][test[1][0]-1][0], test[0][test[1][0]-1][1]) #appends newly recorded point to recs for next round
-    recs[len(recs)-1] = (test[1][0], test[1][1])
+    recs.append([]) 
+    recs[len(recs)-1] = (test[1][0], test[1][1]) #appends newly recorded point to original recordings list
     
     print("")
     print("Updated recording points:") #recs array updated for next run of algo, print
