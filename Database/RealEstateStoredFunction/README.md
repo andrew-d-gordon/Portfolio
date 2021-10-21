@@ -8,7 +8,8 @@ An example stored function which is utilized by the C code lives in increaseSome
 
 Utilize MakeAndExecute in order to compile and utilize runRealEstateApplication.c.
 
-It is necessary to set your PostgreSQL credentials within MakeAndExecute as sql_username and psql_password are placeholders.
+It is necessary to set your PostgreSQL credentials within MakeAndExecute as sql_username and psql_password are placeholders (as present in second line below).
 
-`gcc -L/usr/include -lpq -o runRealEstateApplication runRealEstateApplication.c
-./runRealEstateApplication psql_username psql_password`
+`gcc -L/usr/include -lpq -o runRealEstateApplication runRealEstateApplication.c`
+
+`./runRealEstateApplication psql_username psql_password`
