@@ -7,4 +7,4 @@ The project utilizes Librosa, NumPy, and Fourier transforms for the DSP and pitc
 
 Polyphonic pitch detection tools represented here follow a loose integration of the fiddle~ algorithm by Miller Puckette (UCSD), Theodore Apel (UCSD), and David Zicarelli (Cycling74).
 
-Details of this algorithm is available in the PDF within the misc folder.
+Details of this algorithm are available in the PDF within the misc folder.
