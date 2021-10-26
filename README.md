@@ -3,7 +3,7 @@
 
 **Honors Graduate of University of California, Santa Cruz, Class of 2021**
 
-Thank you for stopping by my Github Portfolio! Some of the projects above can also be viewed on my website (here)[https://andrewgordon.herokuapp.com/].
+Thank you for stopping by my Github Portfolio! Some of the projects above can also be viewed on my website [here](https://andrewgordon.herokuapp.com/).
 
 A project in development at this moment is Delish! It makes use of GCP, Google Maps API, Google Firebase, Node.js and Google's NoSQL, Firestore Database to provide a unique cuisine searching experience. Information on the project can be found [here](https://github.com/cyruskarsan/Delish-Food). I personally built out the frontend functionality, integrated Google Firebase functions on the backend, and am developing the addition of Google Sign In's to retain rating and favorite restaurant information for users.
 
