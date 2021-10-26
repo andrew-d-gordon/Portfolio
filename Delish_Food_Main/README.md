@@ -1,9 +1,13 @@
 # Delish-Food
-[Delish Food](https://delish-food-292917.web.app/) is a crowdsourced website designed to be intuitive and visually appealing. Our goal is to help you find the best ethnic food in your area. 
 
-# Usage
-https://delish-food-292917.web.app/ \
-Simply visit our website and choose a category, or categories, of food you are craving.
+**ORIGINAL REPO LOCATION: [Delish-Food](https://github.com/cyruskarsan/Delish-Food)**
+
+
+[Delish Food](https://delish-2.web.app/#) is a crowdsourced website designed to be intuitive and visually appealing. Our goal is to help you find the best ethnic food in your area. 
+
+https://delish-2.web.app/# \
+Simply visit our website and choose a category, or categories, of food you are craving.\
+*If you don't see any markers, try zooming out*
 
 # Icons and ratings
 Delish Food uses crowdsourcing to let you know where the best places are to eat in your neighborhood. Places with larger icons are highly rated while places with smaller icons are rated less.
@@ -14,8 +18,14 @@ We need your help! When you find a good place to eat, add an upvote to your favo
 
 ![upvote](readme-images/pericos.png)
 
-# Tech
-* Our website is hosted on Google Firebase.
-* Populated maps data using Google Maps and Places API
-* Our REST API is hosted by GCP endpoints.
-* We used MongoDB Atlas as our database to store ratings.
+# Tech Stack
+* Our website is hosted on **Google Firebase**.
+* Our REST API uses **firebase functions serverless infrastructure**.
+* We used **firestore nosql database** to store our data. 
+* Populated maps data using Google Maps and Places API.
+
+# Local Development
+To run locally: `firebase emulators: start`\
+Once everything has been initialized, you will see the domains and ports which the frontend and backend are run on.
+
+WEb app is viewable locally at: http://localhost:5000/#
